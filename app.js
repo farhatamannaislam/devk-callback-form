@@ -22,9 +22,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // ===== helpers =====
     function showSection(index) {
         sections.forEach((s, i) => s.classList.toggle('active', i === index));
-        progressSteps.forEach((step, i) => step.classList.toggle('active', i <= index));
+        progressSteps.forEach((step, i) => step.classList.toggle('active', i === index));
         currentSection = index;
     }
+
 
     // Basic validators
     const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
