@@ -254,6 +254,43 @@ button:active {
     font-weight: 700
 }
 
+
+/* ===== Styles for saved HTML files ===== */
+.wrap {
+    max-width: 720px;
+    margin: 24px auto;
+    padding: 16px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.wrap h1 {
+    font-size: 20px;
+    margin: 0 0 12px;
+}
+
+.wrap .meta {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.wrap dl {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 8px 16px;
+}
+
+.wrap dt {
+    font-weight: bold;
+}
+
+.wrap dd {
+    margin: 0;
+}
+
+
 /* ===== Responsive ===== */
 @media (max-width: 680px) {
     .form-container {
