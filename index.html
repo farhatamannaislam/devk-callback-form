@@ -95,12 +95,59 @@
 
                 <!-- Section 3: Kontakt & Interessen -->
                 <div class="form-section" id="section-3">
-                    <!-- fields later -->
+                    <div class="form-group">
+                        <label for="email" class="required">E-Mail-Adresse</label>
+                        <input type="email" id="email" />
+                        <div class="error" id="email-error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactTime" class="required">Wann sollen wir Sie kontaktieren?</label>
+                        <select id="contactTime" required>
+                            <option value="">Bitte auswählen</option>
+                            <option value="morning">Vormittags (8–12 Uhr)</option>
+                            <option value="afternoon">Nachmittags (12–17 Uhr)</option>
+                            <option value="evening">Abends (17–20 Uhr)</option>
+                        </select>
+                        <div class="error" id="contactTime-error">Bitte wählen Sie einen Zeitraum aus.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="insuranceInterests" class="required">An welchen Versicherungssparten sind Sie
+                            interessiert?</label>
+                        <select id="insuranceInterests" multiple size="5" required>
+                            <option value="kfz">Kfz-Versicherung</option>
+                            <option value="haftpflicht">Haftpflichtversicherung</option>
+                            <option value="hausrat">Hausratversicherung</option>
+                            <option value="wohngebaeude">Wohngebäudeversicherung</option>
+                            <option value="leben">Lebensversicherung</option>
+                            <option value="rechtsschutz">Rechtsschutzversicherung</option>
+                            <option value="unfall">Unfallversicherung</option>
+                            <option value="kranken">Krankenversicherung</option>
+                        </select>
+                        <div class="error" id="insuranceInterests-error">Bitte wählen Sie mindestens eine
+                            Versicherungssparte aus.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments">Optionales Kommentarfeld</label>
+                        <textarea id="comments" rows="4"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacy" required />
+                        <label for="privacy" class="required">
+                            Ich habe die <a href="#">Datenschutzhinweise</a> gelesen und stimme diesen zu.
+                        </label>
+                    </div>
+                    <div class="error" id="privacy-error">Bitte stimmen Sie den Datenschutzhinweisen zu.</div>
+
                     <div class="buttons">
                         <button type="button" class="btn-prev" id="prev-3">Zurück</button>
                         <button type="button" class="btn-next" id="next-3">Weiter</button>
                     </div>
                 </div>
+
 
                 <!-- Section 4: Übersicht -->
                 <div class="form-section" id="section-4">
