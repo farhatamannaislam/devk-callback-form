@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     try {
-      const res = await fetch('/api/callback', {
+      const res = await fetch('http://localhost:3000/api/callback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -192,4 +192,3 @@ document.addEventListener('DOMContentLoaded', function () {
   // init
   showSection(0);
 });
-
