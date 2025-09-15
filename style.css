@@ -1,0 +1,36 @@
+/* ========== DEVK Look & Feel ========== */
+:root{
+  --devk-green: #0b7a3e;
+  --devk-green-dark: #075c2d;
+  --devk-green-verylight:#eaf5ef;
+  --devk-text:#1f2b2a;
+  --devk-muted:#5d6b69;
+  --devk-border:#e2e7e6;
+  --devk-error:#c62828;
+  --devk-success:#2e7d32;
+  --radius:12px;
+  --shadow:0 10px 24px rgba(3,50,31,.08);
+  --shadow-sm:0 6px 16px rgba(3,50,31,.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; padding:24px;
+  font-family: "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  color:var(--devk-text);
+  background:linear-gradient(180deg,#f7fbf9, #f4faf6);
+}
+
+/* ===== Shell ===== */
+.container{
+  max-width: 920px; margin:0 auto;
+  background:#fff; border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow:hidden;
+}
+header{
+  background: var(--devk-green);
+  color:#fff; text-align:center; padding:28px 24px;
+}
+.logo{ font-weight:800; letter-spacing:.5px; font-size:26px; margin-bottom:6px }
+h1{ font-weight:700; margin:0; font-size:22px }
