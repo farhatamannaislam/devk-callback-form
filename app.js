@@ -11,6 +11,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let currentSection = 0; // 0..3
 
+  // ===== API base URL (auto: prod for GitHub Pages, local otherwise) =====
+  // Replace the placeholder with your deployed backend URL (e.g., Render/Railway).
+  const PROD_API = 'https://YOUR-BACKEND-URL.example.com';
+  const API_BASE = window.location.hostname.endsWith('github.io') ? PROD_API : 'http://127.0.0.1:3000';
+
   // ===== helpers =====
   function showSection(index) {
     sections.forEach((s, i) => s.classList.toggle('active', i === index));
@@ -168,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     try {
-      const res = await fetch('http://localhost:3000/api/callback', {
+      const res = await fetch(`${API_BASE}/api/callback`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -178,12 +183,17 @@ document.addEventListener('DOMContentLoaded', function () {
       if (result.success) {
         form.style.display = 'none';
         successMessage.style.display = 'block';
+
+        // Keep success visible for 5s, then reload (adjust as needed)
+        setTimeout(() => {
+          window.location.reload();
+        }, 5000);
       } else {
         alert('Fehler: ' + (result.error || 'Bitte Eingaben prüfen.'));
       }
     } catch (err) {
       console.error(err);
-      alert('Serverfehler – läuft der Node-Server unter http://localhost:3000?');
+      alert('Serverfehler – Backend erreichbar unter ' + API_BASE + ' ?');
     } finally {
       if (submitBtn) submitBtn.disabled = false;
     }
