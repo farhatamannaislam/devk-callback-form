@@ -52,12 +52,46 @@
 
                 <!-- Section 2: Personen-Daten -->
                 <div class="form-section" id="section-2">
-                    <!-- fields later -->
+                    <div class="form-group">
+                        <label for="firstName" class="required">Vorname</label>
+                        <input type="text" id="firstName" />
+                        <div class="error" id="firstName-error">Bitte geben Sie Ihren Vornamen ein.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName" class="required">Nachname</label>
+                        <input type="text" id="lastName" />
+                        <div class="error" id="lastName-error">Bitte geben Sie Ihren Nachnamen ein.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="zipCode" class="required">PLZ</label>
+                        <input type="text" id="zipCode" maxlength="5" />
+                        <div class="error" id="zipCode-error">Bitte geben Sie eine gültige PLZ ein.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city" class="required">Wohnort</label>
+                        <input type="text" id="city" />
+                        <div class="error" id="city-error">Bitte geben Sie Ihren Wohnort ein.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profession">Beruf</label>
+                        <input type="text" id="profession" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="employer">Arbeitgeber</label>
+                        <input type="text" id="employer" />
+                    </div>
+
                     <div class="buttons">
                         <button type="button" class="btn-prev" id="prev-2">Zurück</button>
                         <button type="button" class="btn-next" id="next-2">Weiter</button>
                     </div>
                 </div>
+
 
                 <!-- Section 3: Kontakt & Interessen -->
                 <div class="form-section" id="section-3">
