@@ -209,3 +209,47 @@ button {
 button:active {
     transform: translateY(1px)
 }
+
+/* ===== Error / Success ===== */
+.error {
+    display: none;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #fff;
+    background: var(--devk-error);
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+.success-message {
+    display: none;
+    text-align: center;
+    padding: 40px 24px;
+}
+
+.success-message h2 {
+    color: var(--devk-green);
+    margin: 0 0 8px
+}
+
+.success-message p {
+    color: var(--devk-muted)
+}
+
+/* ===== Summary list ===== */
+#summary ul {
+    padding-left: 16px;
+    margin: 12px 0 0
+}
+
+#summary li {
+    margin: 6px 0;
+    color: var(--devk-text)
+}
+
+/* ===== Required asterisk ===== */
+.required::after {
+    content: ' *';
+    color: var(--devk-error);
+    font-weight: 700
+}
