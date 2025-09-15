@@ -104,26 +104,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ===== events =====
   // next
-  document.querySelectorAll('.btn-next').forEach((btn, i) => {
+  document.querySelectorAll('.btn-next').forEach((btn) => {
     btn.addEventListener('click', () => {
       if (!validateSection(currentSection)) return;
 
       // custom flow after section 1
-      if (currentSection === 0) {
-        if (isCustomerSelect.value === 'yes') {
-          showSection(2); // skip personal data → go to section 3
-          return;
-        }
+      if (currentSection === 0 && isCustomerSelect.value === 'yes') {
+        showSection(2); // skip personal data → go to section 3
+        return;
       }
 
       // before entering section 4, build summary
-      if (currentSection === 2) {
-        updateSummary();
-      }
+      if (currentSection === 2) updateSummary();
 
-      if (currentSection < sections.length - 1) {
-        showSection(currentSection + 1);
-      }
+      if (currentSection < sections.length - 1) showSection(currentSection + 1);
     });
   });
 
@@ -144,17 +138,58 @@ document.addEventListener('DOMContentLoaded', function () {
     customerNumberGroup.style.display = (isCustomerSelect.value === 'yes') ? 'block' : 'none';
   });
 
-  // submit
-  form.addEventListener('submit', (e) => {
+  // ===== submit → POST to backend =====
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (!validateSection(2)) { // ensure last required section valid
+
+    // ensure last required section valid
+    if (!validateSection(2)) {
       showSection(2);
       return;
     }
-    form.style.display = 'none';
-    successMessage.style.display = 'block';
+
+    const submitBtn = form.querySelector('.btn-submit');
+    if (submitBtn) submitBtn.disabled = true;
+
+    const payload = {
+      isCustomer: document.getElementById('isCustomer').value,
+      customerNumber: document.getElementById('customerNumber').value,
+      firstName: document.getElementById('firstName').value,
+      lastName: document.getElementById('lastName').value,
+      zipCode: document.getElementById('zipCode').value,
+      city: document.getElementById('city').value,
+      profession: document.getElementById('profession').value,
+      employer: document.getElementById('employer').value,
+      email: document.getElementById('email').value,
+      contactTime: document.getElementById('contactTime').value,
+      insuranceInterests: Array.from(document.getElementById('insuranceInterests').selectedOptions).map(o => o.value),
+      comments: document.getElementById('comments').value,
+      privacy: document.getElementById('privacy').checked
+    };
+
+    try {
+      const res = await fetch('/api/callback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await res.json();
+
+      if (result.success) {
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+      } else {
+        alert('Fehler: ' + (result.error || 'Bitte Eingaben prüfen.'));
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Serverfehler – läuft der Node-Server unter http://localhost:3000?');
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 
   // init
   showSection(0);
 });
+
