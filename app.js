@@ -20,11 +20,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ===== helpers =====
+    function sectionToStep(sectionIdx) {
+        // sections 0 and 1 belong to progress step 0
+        if (sectionIdx <= 1) return 0;
+        // section 2 -> step 1, section 3 -> step 2
+        return sectionIdx - 1;
+    }
+
     function showSection(index) {
+        // show only the requested section
         sections.forEach((s, i) => s.classList.toggle('active', i === index));
-        progressSteps.forEach((step, i) => step.classList.toggle('active', i === index));
+
+        // highlight only the mapped progress step
+        const stepIdx = sectionToStep(index);
+        progressSteps.forEach((step, i) =>
+            step.classList.toggle('active', i === stepIdx)
+        );
+
         currentSection = index;
     }
+
 
 
     // Basic validators
