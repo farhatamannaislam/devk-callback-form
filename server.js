@@ -17,3 +17,16 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
+
+// POST endpoint to handle form data
+app.post('/api/callback', (req, res) => {
+  const formData = req.body;
+
+  console.log('Received form submission:', formData);
+
+  // For now just return success
+  res.json({
+    message: 'Form submission received',
+    data: formData,
+  });
+});
