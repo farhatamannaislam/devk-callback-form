@@ -253,3 +253,23 @@ button:active {
     color: var(--devk-error);
     font-weight: 700
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 680px) {
+    .form-container {
+        padding: 22px 18px
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons button {
+        width: 100%
+    }
+
+    .progress-step {
+        font-size: 13px;
+        padding: 10px 6px
+    }
+}
