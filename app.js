@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const isGhPages = /github\.io$/.test(location.hostname);
     const API_BASE = isGhPages ? PROD_URL : LOCAL_URL;
 
-
     // ===== helpers =====
     function sectionToStep(sectionIdx) {
         // sections 0 and 1 belong to progress step 0

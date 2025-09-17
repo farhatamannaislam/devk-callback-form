@@ -178,4 +178,20 @@ Prüfe, ob {```API_BASE```} korrekt ist und das Backend unter der URL erreichbar
 * **CORS-Fehler:**
 Domain des Frontends im Backend freigeben.
 
+## Validierung & Code-Qualität
+
+- **HTML:** mit dem [W3C Markup Validation Service](https://validator.w3.org/) geprüft – **0 Fehler**  
+- **CSS:** mit dem [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) geprüft – **0 Fehler**  
+  > Hinweise zu `var(--…)` (CSS Custom Properties) sind Informationsmeldungen und **keine** Fehler.
+- **JavaScript:** mit [JSHint](https://jshint.com/) geprüft – **0 Fehler**  
+  - Browser-Code (`app.js`):  
+    ```js
+    /* jshint browser:true, esversion:11, undef:true, unused:true */
+    ```
+  - Node-Code (`server.js`):  
+    ```js
+    /* jshint node:true, esversion:11 */
+    ```
+
+**Reproduktion:** Code in die jeweiligen Online-Validatoren einfügen (siehe Links oben).
 
