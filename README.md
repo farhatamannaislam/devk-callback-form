@@ -1,6 +1,6 @@
 # DEVK Callback Form
 
-Ein schlankes, mehrstufiges Web-Formular, mit dem Interessenten einen **Rückrufdurch die DEVK** anfordern können.
+Ein schlankes, mehrstufiges Web-Formular, mit dem Interessenten einen **Rückruf durch die DEVK** anfordern können.
 Das Projekt ist **statisch** (HTML/CSS/JS) und sendet die Daten per fetch an ein Backend-API.
 
 ## Live-Demo
@@ -102,9 +102,9 @@ Content-Type: application/json
 Bei Erfolg blendet das Frontend eine Bestätigung ein und lädt nach kurzer Zeit neu.
 
 ## Validierungsregeln (Frontend)
-* **Kunde (isCustomer):** Pflichtfeld ```(yes/no)````
+* **Kunde (isCustomer):** Pflichtfeld (`yes`/`no`)
 * **Kundennummer:** Pflicht, wenn ```isCustomer === "yes"``` (mind. nicht leer)
-* **Vorname, Nachname, PLZ, Wohnort:** Pflicht, wenn ```isCustomer === "no"````
+* **Vorname, Nachname, PLZ, Wohnort:** Pflicht, wenn wenn `isCustomer === "no"`
     * **PLZ:** ```^\d{5}$```
 * **E-Mail:** ```^[^\s@]+@[^\s@]+\.[^\s@]+$```
 * **Kontaktzeit (contactTime):** Pflicht (Dropdown)
