@@ -195,3 +195,21 @@ Domain des Frontends im Backend freigeben.
 
 **Reproduktion:** Code in die jeweiligen Online-Validatoren einfügen (siehe Links oben).
 
+## Responsivität
+
+Die Anwendung ist **responsive** und wurde u. a. mit **Am I Responsive?** geprüft.
+
+- **Tool:** <https://amiresponsive.co.uk/>  
+  → getestet mit der Live-URL: <https://farhatamannaislam.github.io/devk-callback-form/>
+- **Breakpoints / Gerätebeispiele:**
+  - 360×640 (Smartphone)
+  - 768×1024 (Tablet)
+  - 1024×768 (kleines Laptop)
+  - 1440×900 (Desktop)
+- **Erwartetes Verhalten:**
+  - Keine horizontale Scrollleiste
+  - Fortschritts-Chips (Tabs) bleiben lesbar, nur **aktueller Tab** ist hervorgehoben
+  - Buttons stapeln unter 680 px Breite (mobile)
+  - Fokus-Ringe sichtbar (A11y)
+
+![Responsive Preview](docs/responsive-mockup.png)
